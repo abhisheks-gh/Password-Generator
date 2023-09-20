@@ -42,11 +42,22 @@ public class PasswordGenerator {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                 '!', '@', '#', '_', '-', '.'};
 
+
         Random rand = new Random();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < passwordLength; i++) {
+        for (int i = 0; i < passwordLength-2; i++) {
             sb.append(characterSet[rand.nextInt(0, 68)]);
         }
+
+        // making sure that password contains atleast 1 special character and 1 digit as required by most of the platforms
+        
+        for (int i = sb.length(); i < passwordLength-1; i++) {
+            sb.append(characterSet[rand.nextInt(52, 68)]);
+        }
+        for (int i = sb.length(); i < passwordLength; i++) {
+            sb.append(characterSet[rand.nextInt(62, 68)]);
+        }
+        
 
         return "Your password is: " + sb.toString();
     }
