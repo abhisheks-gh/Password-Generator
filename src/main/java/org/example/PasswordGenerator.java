@@ -3,6 +3,8 @@
     to specify password length and quickly generate passwords for various online accounts
     and services */
 
+// Hey, I am making changes to this project ;)
+
 package org.example;
 
 import java.util.Random;
